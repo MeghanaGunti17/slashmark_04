@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - face it</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            display: flex;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .login-form {
+            padding: 20px;
+        }
+        .login-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #218838;
+        }
+        .video-container {
+            padding: 20px;
+        }
+        .video-container video {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Welcome to the Future</h2>
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="Enter email">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginButton">LOG IN</button>
+        </div>
+        <div class="video-container">
+            <video id="video" autoplay></video>
+            <button id="faceLoginButton">FACE LOG IN</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (email === "test@example.com" && password === "password") {
+                window.location.href = 'home.html';
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+
+        // Face Login logic can be added here
+        document.getElementById('faceLoginButton').addEventListener('click', function() {
+            // Placeholder for face login functionality
+            alert('Face login not implemented');
+        });
+
+        // Video streaming for the face login placeholder
+        const video = document.getElementById('video');
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
